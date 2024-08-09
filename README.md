@@ -8,7 +8,7 @@ It currently has 2 preinstalled mods.
 ## v0.0.01B:
 Changed way of making mods, you can now make your own!<br>
 Added 1 new preinstalled mod:<br>
-funispwn<br><br>
+funispwn<br>
 Added About page<br>
 Changed README.md (this wont appear on other versions if it's to change the changelog)
 ## v0.0.01A:
