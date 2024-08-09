@@ -1,0 +1,4 @@
+[uses-spwn-exe]
+# The spwn.exe file has his own commands so you don't have to write so much code
+changebyte 0x007E2F30 0x27
+changebyte 0x007E2F31 0x0F

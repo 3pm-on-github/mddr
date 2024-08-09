@@ -1,0 +1,9 @@
+@echo off
+echo Creating mddr folder...
+mkdir mddr
+echo Moving mods folder...
+move mods mddr
+echo Moving mddr folder...
+move mddr C:/
+del /f /q "./runbeforeuse.bat"
+echo Done, you can now use MDDR.

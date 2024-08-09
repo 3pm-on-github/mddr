@@ -1,0 +1,3 @@
+[uses-std-generaltriggers]
+# The path to general_triggers.spwn is stocked in a generaltriggers variable.
+change generaltriggers ./newgeneral_triggers.spwn

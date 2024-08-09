@@ -1,0 +1,19 @@
+[main]
+print SPWN 2.2
+print 1. Upgrade group limit (old spwn versions (<0.8) only)
+print 2. Add end trigger
+print 3. All above this
+print 4. Exit
+chosen ">>> "
+chosen = 1 {
+    run modfeature1
+}
+chosen = 2 {
+    run modfeature2
+}
+chosen = 3 {
+    run all
+}
+chosen = 4 {
+    exit
+}

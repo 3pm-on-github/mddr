@@ -1,0 +1,15 @@
+[main]
+print funispwn
+print 1. change spwn print strings to funi
+print 2. all above this
+print 3. exit
+chosen ">>> "
+chosen = 1 {
+    run modfeature1
+}
+chosen = 2 {
+    run all
+}
+chosen = 3 {
+    exit
+}
