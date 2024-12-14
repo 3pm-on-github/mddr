@@ -12,7 +12,7 @@ fn rainbow(text:&str, secs:u64){let rts=[text.red(),text.yellow(),text.green(),t
 
 fn run() {
     const VERSION: &str = "v0.0.01B";
-    print!("\rMDDR {} by GachaYTB3", VERSION);
+    print!("\rMDDR {} by 3pm", VERSION);
     println!();
     println!("NOTE: to run mods, you need to run mddr as administrator.");
     println!("1. Exit");
@@ -55,8 +55,8 @@ fn run() {
             println!("MDDR {}", VERSION);
             println!("© 2024 - 2024");
             println!("Credits:");
-            println!("Creator: GachaYTB3");
-            println!("\nnote from GachaYTB3: do not use this tool while drunk");
+            println!("Creator: 3pm");
+            println!("\nnote from 3pm: do not use this tool while drunk");
             println!();
             println!("█████████████████");
             println!("██             ██");

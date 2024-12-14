@@ -3,7 +3,7 @@ use std::io::Read;
 use std::path::Path;
 
 pub fn launchmod(modid: &str) {
-    let modfolderpath = Path::new("C:/mddr/mods");
+    let modfolderpath = Path::new("/mddr/mods");
     let mut foundmod = false;
 
     match fs::read_dir(modfolderpath) {
@@ -13,7 +13,7 @@ pub fn launchmod(modid: &str) {
                     Ok(entry) => {
                         if entry.path().is_dir() {
                             if let Some(name) = entry.file_name().to_str() {
-                                if read_mddri_file(format!("C:/mddr/mods/{}/info.mddri", name))[0] == modid {
+                                if read_mddri_file(format!("/mddr/mods/{}/info.mddri", name))[0] == modid {
                                     foundmod = true;
                                 }
                             }
@@ -32,7 +32,7 @@ pub fn launchmod(modid: &str) {
 
 pub fn mods() -> Vec<[String; 2]> {
     let mut modlist = Vec::new();
-    let modfolderpath = Path::new("C:/mddr/mods");
+    let modfolderpath = Path::new("/mddr/mods");
 
     match fs::read_dir(modfolderpath) {
         Ok(entries) => {
@@ -41,7 +41,7 @@ pub fn mods() -> Vec<[String; 2]> {
                     Ok(entry) => {
                         if entry.path().is_dir() {
                             if let Some(name) = entry.file_name().to_str() {
-                                modlist.push(read_mddri_file(format!("C:/mddr/mods/{}/info.mddri", name)));
+                                modlist.push(read_mddri_file(format!("/mddr/mods/{}/info.mddri", name)));
                             }
                         }
                     }
