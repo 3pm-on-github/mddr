@@ -9,6 +9,7 @@ It currently has 2 preinstalled mods.
 Changed way of making mods, you can now make your own!<br>
 Added 1 new preinstalled mod:<br>
 funispwn<br>
+Only for linux now (Windows Support will be added back later.)<br>
 Added About page<br>
 Changed README.md (this wont appear on other versions if it's to change the changelog)
 ## v0.0.01A:
@@ -21,4 +22,5 @@ Making so that the first thing that prints when you run spwn build is the Geomet
 funispwn ✅<br>
 Adding about page ✅<br>
 Changing README.md ✅<br>
+Change to Linux ✅<br>
 Changing way of making mods ❌<br>
