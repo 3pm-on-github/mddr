@@ -2,13 +2,17 @@
 
 set -e
 
+# compiling part
+
 echo "Building project..."
-cargo build --release
+gcc src/main.c -o MDDR
 
 echo "Checking output..."
 mkdir -p TEMP_BUILT_MDDR
-mv target/release/mddr TEMP_BUILT_MDDR/mddr
+mv MDDR TEMP_BUILT_MDDR/mddr
 rm -rf target
+
+# end of compiling part
 
 echo "Successfully built mddr. Copying build script..."
 cp runbeforeuse.sh TEMP_BUILT_MDDR/

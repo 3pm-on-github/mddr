@@ -1,6 +1,6 @@
 # MDDR v0.0.01B
 
-MDDR is a modder for spwn with multiple mods.<br>
+MDDR is a modding tool for spwn with multiple mods.<br>
 It currently has 2 preinstalled mods.
 
 # CHANGELOG:
@@ -24,3 +24,4 @@ Adding about page ✅<br>
 Changing README.md ✅<br>
 Change to Linux ✅<br>
 Changing way of making mods ❌<br>
+(extra) RWRT to C ~<br>
