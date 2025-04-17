@@ -3,24 +3,25 @@
 #include <string.h>
 #include <unistd.h>
 #include <time.h>
+#include "moddriver/moddriver.h"
 
 const char* VERSION = "v0.0.01B";
 
 char* get_input() {
-    size_t buffer_size = 2;
-    char* input = (char*)malloc(buffer_size * sizeof(char));
-    if (input == NULL) {
-        fprintf(stderr, "Memory allocation failed\n");
-        exit(1);
-    }
+    static char buffer[128];
 
     printf(">>> ");
-    fgets(input, buffer_size, stdin);
+    if (fgets(buffer, sizeof(buffer), stdin)) {
+        size_t len = strlen(buffer);
+        if (len > 0 && buffer[len - 1] == '\n') {
+            buffer[len - 1] = '\0';
+        }
+        return buffer;
+    }
 
-    input[strcspn(input, "\n")] = '\0';
-
-    return input;
+    return "";
 }
+
 
 void clearcmd() {
     #ifdef _WIN32
@@ -63,6 +64,25 @@ int run() {
     if (strcmp(option, "1") == 0) {
         clearcmd();
         exit(0);
+    } else if (strcmp(option, "2") == 0) {
+        clearcmd();
+        printf("What's the mod id?\n");
+        char* modid = get_input();
+        clearcmd();
+        launchmod(modid);
+        run();
+    } else if (strcmp(option, "3") == 0) {
+        clearcmd();
+        printf("Mods:\n");
+        size_t mod_count;
+        const Mod* modlist = getmods(&mod_count);
+        for (size_t i = 0; i < mod_count; ++i) {
+            printf("%s: %s\n", modlist[i].name, modlist[i].description);
+        }
+        printf("Press enter to go back to the menu\n");
+        char temp[4];
+        fgets(temp, sizeof(temp), stdin);
+        run();
     } else if (strcmp(option, "4") == 0) {
         printf("MDDR %s\n", VERSION);
         printf("© 2024 - 2025\n");
@@ -79,7 +99,6 @@ int run() {
         printf("                  \033[34m[mddr]\033[0m\n\n");
         printf("Press enter to go back to the menu\n");
         char temp[4];
-        fgets(temp, sizeof(temp), stdin);
         fgets(temp, sizeof(temp), stdin);
         run();
     } else {

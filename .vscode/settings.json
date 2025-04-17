@@ -6,6 +6,7 @@
         "**/cache/": true
     },
     "files.associations": {
-        "string.h": "c"
+        "string.h": "c",
+        "stdio.h": "c"
     }
 }
