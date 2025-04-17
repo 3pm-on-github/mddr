@@ -30,7 +30,6 @@ void clearcmd() {
     #endif
 }
 
-
 void rainbow(const char* text, unsigned int secs) {
     const char* colors[] = {
         "\033[31m",
@@ -52,10 +51,7 @@ void rainbow(const char* text, unsigned int secs) {
     printf("\n");
 }
 
-
-int main() {
-    clearcmd();
-    rainbow("Welcome to MDDR!", 2);
+int run() {
     clearcmd();
     printf("\rMDDR %s by 3pm\n\n", VERSION);
     printf("NOTE: to run mods, you need to run mddr as administrator.\n");
@@ -69,7 +65,7 @@ int main() {
         exit(0);
     } else if (strcmp(option, "4") == 0) {
         printf("MDDR %s\n", VERSION);
-        printf("© 2024 - 2024\n");
+        printf("© 2024 - 2025\n");
         printf("Credits:\n");
         printf("Creator: 3pm\n");
         printf("\nnote from 3pm: do not use this tool while drunk\n\n");
@@ -82,13 +78,22 @@ int main() {
         printf("█████████████████\n");
         printf("                  \033[34m[mddr]\033[0m\n\n");
         printf("Press enter to go back to the menu\n");
-        char* unused = get_input(); // BUG: it just skips it
-        main();
+        char temp[4];
+        fgets(temp, sizeof(temp), stdin);
+        fgets(temp, sizeof(temp), stdin);
+        run();
     } else {
         printf("Error: Invalid option\n");
         printf("Press any key to go back to the menu\n");
-        char* unused = get_input(); // BUG: doesnt clear the cmd
-        main();
+        char temp[4];
+        fgets(temp, sizeof(temp), stdin);
+        run();
     }
     free(option);
+}
+
+int main() {
+    clearcmd();
+    rainbow("Welcome to MDDR!", 2);
+    run();
 }
