@@ -191,7 +191,7 @@
             document.getElementsByClassName("imgofmddr")[0].style.marginLeft = ((100 * (1 + (window.pageYOffset / (document.body.offsetHeight - window.innerHeight)))) / 2) + "px";
         }, false);
         setInterval(() => {
-            $.get("https://mddr.gachaytb3.org/api/dislikesnlikes", (data, status) => {
+            $.get("https://mddr-api.threepm.xyz/api/dislikesnlikes", (data, status) => {
                 const likecount = document.getElementById("likecount")
                 const dislikecount = document.getElementById("dislikecount")
                 likecount.innerText = data.likes
@@ -200,8 +200,8 @@
         }, 1000);
         const likebtn = document.getElementById("like")
         const dislikebtn = document.getElementById("dislike")
-        likebtn.onclick = () => {$.post("https://mddr.threepm.xyz/api/like", (data, status) => {console.log(data);console.log(status)});}
-        dislikebtn.onclick = () => {$.post("https://mddr.threepm.xyz/api/dislike", (data, status) => {console.log(data);console.log(status)});}
+        likebtn.onclick = () => {$.post("https://mddr-api.threepm.xyz/api/like", (data, status) => {console.log(data);console.log(status)});}
+        dislikebtn.onclick = () => {$.post("https://mddr-api.threepm.xyz/api/dislike", (data, status) => {console.log(data);console.log(status)});}
     </script>
 </body>
 </html>
