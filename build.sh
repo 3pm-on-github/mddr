@@ -10,6 +10,8 @@ cp -r ./src/moddriver ./TEMP_BUILT_MDDR/
 cp ./src/mddr.py ./TEMP_BUILT_MDDR/
 cp runbeforeuse.sh ./TEMP_BUILT_MDDR/
 cp run.sh ./TEMP_BUILT_MDDR/
+chmod +x ./TEMP_BUILT_MDDR/runbeforeuse.sh
+chmod +x ./TEMP_BUILT_MDDR/run.sh
 
 echo "Copying preinstalled patches..."
 cd TEMP_BUILT_MDDR

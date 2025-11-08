@@ -3,11 +3,23 @@ import moddriver
 
 VERSION = "v0.1.0"
 spwnexepath = f"{os.getenv("HOME")}/Desktop/spwn/spwn"
+spwnver = "0.0.8"
+operatingsystem = ""
+# this looks bad, really bad.
+if platform.system().lower() == "windows":
+    operatingsystem = "win"
+elif platform.system().lower() == "darwin":
+    operatingsystem = "macOS"
+elif platform.system().lower() == "linux":
+    operatingsystem = "linux"
+else:
+    operatingsystem = "unknown"
 
 def clearcmd():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def menu():
+    global spwnexepath, spwnver, operatingsystem
     print(f"MDDR {VERSION} by 3pm\n")
     print("NOTE: To run mods, you need to run MDDR with Administrator Privileges.")
     print("1. Exit")
@@ -30,6 +42,12 @@ def menu():
         if modid == "0":
             clearcmd()
             menu()
+        elif int(modid) > len(moddriver.listPatches()) or int(modid) < 0:
+            clearcmd()
+            print("Invalid Patch Number. Press enter to go back to the menu", end="\r")
+            input()
+            clearcmd()
+            menu()
         else:
             clearcmd()
             moddriver.runpatch(os.listdir(f"{os.getenv("HOME")}/mddr/patches")[int(modid)-1], spwnexepath)
@@ -47,8 +65,6 @@ def menu():
         spwnexe = input(">>> ")
         print("Please enter the version of your copy of SPWN.")
         spwnver = input(">>> ")
-        operatingsystem = ""
-        # this looks bad, really bad.
         if platform.system().lower() == "windows":
             operatingsystem = "win"
         elif platform.system().lower() == "darwin":
@@ -60,11 +76,13 @@ def menu():
         print(f"This information will be set:\nSPWN Executable Path: {spwnexe}\nSPWN Version: {spwnver}\nOperating System: {operatingsystem}\nPress enter to go back to the menu", end="\r")
         input()
         spwnexepath = spwnexe
+        spwnver = spwnver
+        operatingsystem = operatingsystem
         clearcmd()
         menu()
     elif choice == "5":
         clearcmd()
-        print(f"MDDR {VERSION}")
+        print(f"MDDR {VERSION}\n")
         print("© 2024 - 2025")
         print("Credits:")
         print("Developer: 3pm")
@@ -77,6 +95,7 @@ def menu():
         print("██             ██")
         print("█████████████████")
         print("                  [mddr]\n")
+        print(f"SPWN Executable Path: {spwnexepath}\nSPWN Version: {spwnver}\nOperating System: {operatingsystem}\n", end="\r")
         print("Press enter to go back to the menu", end="\r")
         input()
         clearcmd()
