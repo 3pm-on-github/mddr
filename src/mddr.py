@@ -59,6 +59,7 @@ def menu():
             operatingsystem = "unknown"
         print(f"This information will be set:\nSPWN Executable Path: {spwnexe}\nSPWN Version: {spwnver}\nOperating System: {operatingsystem}\nPress enter to go back to the menu", end="\r")
         input()
+        spwnexepath = spwnexe
         clearcmd()
         menu()
     elif choice == "5":

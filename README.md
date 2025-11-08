@@ -1,4 +1,5 @@
 # MDDR v0.1.0
 
-MDDR is a modding tool for spwn with multiple mods.<br>
-It currently has 2 preinstalled mods.
+MDDR is a modding tool for spwn.<br>
+It currently has 1 preinstalled patch.<br>
+-# But it's mostly useless.
