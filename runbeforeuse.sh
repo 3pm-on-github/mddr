@@ -1,15 +1,8 @@
 #!/bin/bash
-
-echo "Creating mddr folder..."
 mkdir mddr
-
-echo "Moving mods folder..."
-mv mods mddr
-
-echo "Moving mddr folder..."
-mv mddr /
-
-echo "Deleting this script..."
+mv patches mddr
+mv mddr ~/
 rm -f "./runbeforeuse.sh"
 
-echo "Done, you can now use MDDR."
+echo "Done, you can now run the run.sh file."
+echo "Make sure you have python3 installed."
