@@ -15,7 +15,6 @@ echo "Copying preinstalled patches..."
 cd TEMP_BUILT_MDDR
 mkdir -p patches
 cd ..
-cp ./preinstalled-patches/grouplimitupgrade.ips ./TEMP_BUILT_MDDR/patches/
 cp ./preinstalled-patches/funistr.ips ./TEMP_BUILT_MDDR/patches/
 
 echo "Zipping files into zip file..."
