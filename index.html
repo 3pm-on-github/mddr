@@ -8,200 +8,146 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Source+Sans+3:wght@700&display=swap" rel="stylesheet">
     <style>
+        :root{
+            --bg: rgb(50,50,50);
+            --panel: rgb(25,25,25);
+            --logo-height: clamp(40px, 6vw, 75px);
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%; margin:0}
         body {
             font-family: "Rubik", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-            background-color: rgb(50, 50, 50);
+            background-color: var(--bg);
+            color: #fff;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
         }
+
+        a { color:inherit; text-decoration:none }
         .mddrlogo {
-            position: absolute;
-            height: 75px;
+            position:fixed;
+            left:1rem;
+            top:1rem;
+            height:var(--logo-height);
+            z-index:1000;
         }
         .mddrtext {
-            position: absolute;
-            color: white;
-            margin-top: 19px;
-            margin-left: 70px;
+            position:fixed;
+            left:calc(1rem + var(--logo-height) + 0.5rem);
+            top:calc(1rem + (var(--logo-height) * 0.12));
+            font-size: clamp(1rem, 2.5vw, 1.6rem);
+            font-weight:700;
+            z-index:1000;
         }
-        .modshopredirect {
-            position: absolute;
-            color: white;
-            margin-top: 19px;
-            margin-left: 1300px;
-        }
-        .imgofmddr {
-            position: fixed;
-            height: 400px;
-            margin-left: 50px;
-            opacity: 1;
-            margin-top: 125px;
-        }
-        .tewtms {
-            position: fixed;
-            font-size: 50px;
-            margin-left: 600px;
-            margin-top: 250px;
-            color: white;
-        }
-        .iwyalarn {
-            position: fixed;
-            color: white;
-            font-size: 25px;
-            margin-left: 602px;
-            margin-top: 325px;
-        }
-        footer {
-            position: absolute;
-            margin-left: -8px;
-            margin-top: calc(149% - 8px);
-            width: 100%;
-            height: 150px;
-            background-color: rgb(0, 0, 0);
-            color: white;
-        }
-        footer p {
-            margin-top: 65px;
-            margin-left: 650px;
-        }
+
         header {
-            position: absolute;
-            margin-top: -8px;
-            margin-left: -8px;
-            width: 100%;
-            height: 102.1%;
-            overflow: hidden;
-            z-index: -1;
+            position:relative;
+            min-height:100vh;
+            padding:calc(var(--logo-height) + 1rem) 1rem 2rem;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            overflow:hidden;
         }
+
+        .hero {
+            width:100%;
+            max-width:1200px;
+            display:flex;
+            gap:clamp(1rem,4vw,3rem);
+            align-items:center;
+            justify-content:space-between;
+            padding:1rem;
+        }
+
+        .imgofmddr {
+            --x: 0vw;
+            max-height: clamp(150px, 40vh, 400px);
+            width: auto;
+            height: auto;
+            transform: translateX(var(--x));
+            transition: transform .12s linear, opacity .12s linear;
+            will-change: transform, opacity;
+            flex: 0 0 auto;
+        }
+
+        .hero-text {
+            flex: 1 1 40%;
+            min-width: 180px;
+            text-align:left;
+        }
+        .tim { font-size: clamp(1.5rem, 4.5vw, 3rem); margin:0 0 .25rem 0; }
+        .amtfs { font-size: clamp(.9rem, 2.5vw, 1.25rem); margin:0; opacity:.95 }
+
         .content {
-            position: absolute;
-            margin-top: 50%;
-            margin-left: -8px;
-            width: 100%;
-            height: 100%;
-            background-color: rgb(25, 25, 25);
+            background-color: var(--panel);
+            padding: clamp(1rem, 4vw, 4rem);
+            display:grid;
+            text-align: center;
+            min-height: 100vh;
+            gap:clamp(.75rem,2.5vw,2rem);
         }
-        .imaam {
-            position: absolute;
-            margin-top: 10%;
-            margin-left: 20%;
-            color: white;
-            font-size: 50px;
+        .content h1 {
+            margin:0;
+            font-size: clamp(1.3rem, 3.5vw, 3rem);
+            font-weight:600;
         }
-        .ucm {
-            position: absolute;
-            margin-top: 20%;
-            margin-left: 30%;
-            color: white;
-            font-size: 50px;
+
+        footer {
+            background: #000;
+            padding:1.5rem;
+            text-align:center;
+            color:#fff;
         }
-        .ewtcm {
-            position: absolute;
-            margin-top: 30%;
-            margin-left: 26.5%;
-            color: white;
-            font-size: 50px;
-        }
-        .ywnarsft {
-            position: absolute;
-            margin-top: 40%;
-            margin-left: 7.5%;
-            color: white;
-            font-size: 50px;
-        }
-        .rmddrh {
-            position: absolute;
-            margin-top: 10%;
-            margin-left: 35%;
-            color: white;
-            font-size: 50px;
-        }
-        .rating {
-            position: absolute;
-            margin-top: 99.5%;
-            margin-left: -8px;
-            height: 100%;
-            width: 100%;
-            background-color: gray;
-        }
-        .like {
-            position:absolute;
-            background: none;
-            border: none;
-            margin-top: 20%;
-            margin-left: 33.5%;
-        }
-        .dislike {
-            position:absolute;
-            background: none;
-            border: none;
-            margin-top: 20%;
-            margin-left: 47.5%;
-        }
-        .likecount {
-            position:absolute;
-            background: none;
-            border: none;
-            margin-top: 35%;
-            margin-left: 40%;
-        }
-        .dislikecount {
-            position:absolute;
-            background: none;
-            border: none;
-            margin-top: 35%;
-            margin-left: 54%;
-        }
-        a {
-            color: white;
-            text-decoration: none;
+
+        @media (max-width:720px){
+            .hero { flex-direction:column-reverse; gap:1rem; align-items:center; text-align:center }
+            .hero-text { min-width: auto; }
+            .mddrtext { display:none }
         }
     </style>
 </head>
 <body>
-    <a href="https://github.com/3pm-on-github/mddr/releases"><img src="https://3pm-on-github.github.io/mddr/assets/mddrlogo.png" alt="MDDR Logo" class="mddrlogo"></a>
+    <a href="https://github.com/3pm-on-github/mddr/releases"><img src="assets/mddrlogo.png" alt="MDDR Logo" class="mddrlogo"></a>
     <h1 class="mddrtext"><a href="https://github.com/3pm-on-github/mddr/releases">MDDR</a></h1>
-    <a href="mddr/modshop/"><h1 class="modshopredirect">Modshop</h1></a>
+
     <header>
-        <img src="https://3pm-on-github.github.io/mddr/assets/imageofmddr.png" alt="MDDR Preview" class="imgofmddr">
-        <h1 class="tewtms">The easiest way to mod spwn</h1>
-        <h1 class="iwyalarn">is what you are looking at right now.</h1>
+        <div class="hero" aria-hidden="false">
+            <img src="assets/imageofmddr.png" alt="MDDR Preview" class="imgofmddr">
+            <div class="hero-text">
+                <h1 class="tim">This is MDDR.</h1>
+                <p class="amtfs">A modding tool for SPWN.</p>
+            </div>
+        </div>
     </header>
-    <div class="content">
-        <h1 class="imaam">Integrated mods and a modshop...</h1>
-        <h1 class="ucm">User-created mods...</h1>
-        <h1 class="ewtcm">Easy way to create mods...</h1>
-        <h1 class="ywnarsft">Yeah, we absolutely need a rating system for that.</h1>
-    </div>
-    <div class="rating">
-        <h1 class="rmddrh">Rate MDDR Here!</h1>
-        <button class="like" id="like"><img src="https://3pm-on-github.github.io/mddr/assets/like.png" alt="Like Button"></button>
-        <h1 class="likecount" id="likecount">0</h1>
-        <button class="dislike" id="dislike"><img src="https://3pm-on-github.github.io/mddr/assets/dislike.png" alt="Dislike Button"></button>
-        <h1 class="dislikecount" id="dislikecount">0</h1>
-    </div>
+
+    <main class="content">
+        <h1 class="one">Download the release in the github repo.</h1>
+        <h1 class="two">Run one command. Add your custom-made IPS patches.</h1>
+        <h1 class="three">Run MDDR, set the path to your SPWN executable & version.</h1>
+        <h1 class="four">Type two numbers, and you're done modding SPWN with MDDR.</h1>
+    </main>
+
     <footer>
-        <p>Made by 3pm</p>
+        <p>Made by 3pm<br>© 2024 - 2025</p>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script>
-        window.addEventListener('scroll', () => {
-            document.getElementsByClassName("imgofmddr")[0].style.opacity = 1 + (window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
-            document.getElementsByClassName("imgofmddr")[0].style.marginLeft = ((100 * (1 + (window.pageYOffset / (document.body.offsetHeight - window.innerHeight)))) / 2) + "px";
-        }, false);
-        setInterval(() => {
-            $.get("https://mddr.threepm.xyz/api/dislikesnlikes", (data, status) => {
-                const likecount = document.getElementById("likecount")
-                const dislikecount = document.getElementById("dislikecount")
-                likecount.innerText = data.likes
-                dislikecount.innerText = data.dislikes
-            });
-        }, 1000);
-        const likebtn = document.getElementById("like")
-        const dislikebtn = document.getElementById("dislike")
-        likebtn.onclick = () => {$.post("https://mddr.threepm.xyz/api/like", (data, status) => {console.log(data);console.log(status)});}
-        dislikebtn.onclick = () => {$.post("https://mddr.threepm.xyz/api/dislike", (data, status) => {console.log(data);console.log(status)});}
+        (function(){
+            const img = document.querySelector('.imgofmddr');
+            function clamp(v, a, b){ return Math.max(a, Math.min(b, v)) }
+            function update(){
+                const docH = document.body.scrollHeight - window.innerHeight;
+                const progress = docH > 0 ? window.pageYOffset / docH : 0;
+                const move = (progress * -20).toFixed(2) + 'vw';
+                const opacity = clamp(1 - progress * 0.75, 0.4, 1).toFixed(3);
+                img.style.setProperty('--x', move);
+                img.style.opacity = opacity;
+            }
+            window.addEventListener('scroll', update, {passive:true});
+            window.addEventListener('resize', update);
+            update();
+        })();
     </script>
 </body>
 </html>
